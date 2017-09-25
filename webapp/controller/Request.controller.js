@@ -422,6 +422,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							that.getView().byId("tcApprove").setValue(tc);
 							that.getView().byId("sicilApprove").setValue(sicil);
 
+							//begin of ycoskun visible yapma
+							that.getView().byId("labelSicil").setVisible(true);
+							that.getView().byId("sicilApprove").setVisible(true);
+							that.getView().byId("labelDil").setVisible(true);
+							that.getView().byId("dilPrimApprove").setVisible(true);
+							that.getView().byId("labelArac").setVisible(true);
+							that.getView().byId("aracPrimApprove").setVisible(true);
+							that.getView().byId("labelMev").setVisible(true);
+							that.getView().byId("mevPrimApprove").setVisible(true);
+							that.getView().byId("labelVek").setVisible(true);
+							that.getView().byId("vekPrimApprove").setVisible(true);
+							that.getView().byId("labelTC").setVisible(true);
+							that.getView().byId("tcApprove").setVisible(true);
+							that.getView().byId("labelSirket").setVisible(true);
+							that.getView().byId("sirketApprove").setVisible(true);
+
+							that.getView().byId("labelOkulTur").setVisible(true);
+							that.getView().byId("okulTurApprove").setVisible(true);
+							that.getView().byId("labelOkulAd").setVisible(true);
+							that.getView().byId("okulAdApprove").setVisible(true);
+							that.getView().byId("labelEgitim").setVisible(true);
+							that.getView().byId("egitimApprove").setVisible(true);
+
 							that.getView().byId("IconTabAttach").setVisible(false);
 							that.getView().byId("iconTabTable").setVisible(true);
 							that.getView().byId("idPDTable").setVisible(true);
@@ -493,6 +516,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							that.getView().byId("vekPrimApprove").setValue(vekPrim);
 							that.getView().byId("tcApprove").setValue(tc);
 							that.getView().byId("sicilApprove").setValue(sicil);
+
+							//begin of ycoskun visible yapma
+							that.getView().byId("labelSicil").setVisible(true);
+							that.getView().byId("sicilApprove").setVisible(true);
+							that.getView().byId("labelDil").setVisible(true);
+							that.getView().byId("dilPrimApprove").setVisible(true);
+							that.getView().byId("labelArac").setVisible(true);
+							that.getView().byId("aracPrimApprove").setVisible(true);
+							that.getView().byId("labelMev").setVisible(true);
+							that.getView().byId("mevPrimApprove").setVisible(true);
+							that.getView().byId("labelVek").setVisible(true);
+							that.getView().byId("vekPrimApprove").setVisible(true);
+							that.getView().byId("labelTC").setVisible(true);
+							that.getView().byId("tcApprove").setVisible(true);
+							that.getView().byId("labelSirket").setVisible(true);
+							that.getView().byId("sirketApprove").setVisible(true);
+
+							that.getView().byId("labelOkulTur").setVisible(true);
+							that.getView().byId("okulTurApprove").setVisible(true);
+							that.getView().byId("labelOkulAd").setVisible(true);
+							that.getView().byId("okulAdApprove").setVisible(true);
+							that.getView().byId("labelEgitim").setVisible(true);
+							that.getView().byId("egitimApprove").setVisible(true);
 
 							that.getView().byId("IconTabAttach").setVisible(false);
 							that.getView().byId("iconTabTable").setVisible(true);
@@ -566,6 +612,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							that.getView().byId("tcApprove").setValue(tc);
 							that.getView().byId("sicilApprove").setValue(sicil);
 
+							//begin of ycoskun visible yapma
+							that.getView().byId("labelSicil").setVisible(true);
+							that.getView().byId("sicilApprove").setVisible(true);
+							that.getView().byId("labelDil").setVisible(true);
+							that.getView().byId("dilPrimApprove").setVisible(true);
+							that.getView().byId("labelArac").setVisible(true);
+							that.getView().byId("aracPrimApprove").setVisible(true);
+							that.getView().byId("labelMev").setVisible(true);
+							that.getView().byId("mevPrimApprove").setVisible(true);
+							that.getView().byId("labelVek").setVisible(true);
+							that.getView().byId("vekPrimApprove").setVisible(true);
+							that.getView().byId("labelTC").setVisible(true);
+							that.getView().byId("tcApprove").setVisible(true);
+							that.getView().byId("labelSirket").setVisible(true);
+							that.getView().byId("sirketApprove").setVisible(true);
+
+							that.getView().byId("labelOkulTur").setVisible(true);
+							that.getView().byId("okulTurApprove").setVisible(true);
+							that.getView().byId("labelOkulAd").setVisible(true);
+							that.getView().byId("okulAdApprove").setVisible(true);
+							that.getView().byId("labelEgitim").setVisible(true);
+							that.getView().byId("egitimApprove").setVisible(true);
+
 							that.getView().byId("IconTabAttach").setVisible(false);
 							that.getView().byId("iconTabTable").setVisible(true);
 							that.getView().byId("idPDTable").setVisible(true);
@@ -637,6 +706,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							that.getView().byId("vekPrimApprove").setValue(vekPrim);
 							that.getView().byId("tcApprove").setValue(tc);
 							that.getView().byId("sicilApprove").setValue(sicil);
+
+							//begin of ycoskun visible yapma
+							that.getView().byId("labelSicil").setVisible(true);
+							that.getView().byId("sicilApprove").setVisible(true);
+							that.getView().byId("labelDil").setVisible(true);
+							that.getView().byId("dilPrimApprove").setVisible(true);
+							that.getView().byId("labelArac").setVisible(true);
+							that.getView().byId("aracPrimApprove").setVisible(true);
+							that.getView().byId("labelMev").setVisible(true);
+							that.getView().byId("mevPrimApprove").setVisible(true);
+							that.getView().byId("labelVek").setVisible(true);
+							that.getView().byId("vekPrimApprove").setVisible(true);
+							that.getView().byId("labelTC").setVisible(true);
+							that.getView().byId("tcApprove").setVisible(true);
+							that.getView().byId("labelSirket").setVisible(true);
+							that.getView().byId("sirketApprove").setVisible(true);
+
+							that.getView().byId("labelOkulTur").setVisible(true);
+							that.getView().byId("okulTurApprove").setVisible(true);
+							that.getView().byId("labelOkulAd").setVisible(true);
+							that.getView().byId("okulAdApprove").setVisible(true);
+							that.getView().byId("labelEgitim").setVisible(true);
+							that.getView().byId("egitimApprove").setVisible(true);
 
 							that.getView().byId("IconTabAttach").setVisible(false);
 							that.getView().byId("iconTabTable").setVisible(true);
