@@ -129,7 +129,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 		onAfterRendering: function() {
 			var that = this;
 			var pozisyon, perAlan, perAltAlan, isAlan, isAnahtar, orgBirim, clsGrup, aracPrim, dilPrim, mevPrim, vekPrim, fisKonu;
-			var clsAltGrp, skala, ucret, diger, okulTur, okulAd, egitim, adSoyad, dogumTarih, gecerTarih, sirket, tc, sicil;
+			var clsAltGrp, skala, ucret, diger, okulTur, okulAd, egitim, adSoyad, dogumTarih, gecerTarih, sirket, tc, sicil, ayrilma;
 
 			var oLangModel = new sap.ui.model.json.JSONModel();
 			var perFilter = "Pernr eq '" + firstPernr + "'";
@@ -147,7 +147,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				if (firstPronr === "01") {
 					oModel.read("/ZHRTalepPersonelBilgiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
+							/*pozisyon = oData.Plans;
 							perAlan = oData.Werks;
 							perAltAlan = oData.Btrtl;
 							isAlan = oData.Gsber;
@@ -171,6 +171,31 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							sirket = "";
 							tc = "";
 							//sicil = firstPernr;
+							fisKonu = "İşe Alım";*/
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
+							skala = oData.Trfgr;
+							ucret = oData.Bet01;
+							diger = oData.Diger;
+							okulTur = oData.SlartTxt;
+							okulAd = oData.Insti;
+							egitim = oData.Ftext;
+							adSoyad = oData.Ename;
+							dogumTarih = oData.Gbdat;
+							gecerTarih = oData.Begda;
+							aracPrim = "";
+							dilPrim = "";
+							mevPrim = "";
+							vekPrim = "";
+							sirket = "";
+							tc = "";
+							sicil = "";
 							fisKonu = "İşe Alım";
 
 							that.getView().byId("fisApprove").setText(fisKonu);
@@ -231,7 +256,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						});
 					//işe alım personelinin yabancı dillerini getirme
 
-					oModel.read("/ZHRYabanciDilSet", null, ["$filter=" + perFilter], false,
+					oModel.read("/ZHRIseAlimYDSet", null, ["$filter=" + perFilter], false,
 						function(oData) {
 							oLangModel.setData(oData);
 							//	console.log(oData);
@@ -241,7 +266,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 					//işe alım personelinin zihinsel beceri bilgilerini getirme
 
-					oModel.read("/ZHRZihinselBeceriSet", null, ["$filter=" + perAbFilter], false,
+					oModel.read("/ZHRIseAlimZBSet", null, ["$filter=" + perAbFilter], false,
 						function(oData) {
 							oAbModel.setData(oData);
 
@@ -274,14 +299,39 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				} else if (firstPronr === "02") {
 					oModel.read("/ZHRIstenCikisSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
-							perAlan = oData.Werks;
-							perAltAlan = oData.Btrtl;
-							isAlan = oData.Gsber;
-							isAnahtar = oData.Stell;
-							orgBirim = oData.Orgeh;
-							clsGrup = oData.Persg;
-							clsAltGrp = oData.Persk;
+							/*	pozisyon = oData.Plans;
+								perAlan = oData.Werks;
+								perAltAlan = oData.Btrtl;
+								isAlan = oData.Gsber;
+								isAnahtar = oData.Stell;
+								orgBirim = oData.Orgeh;
+								clsGrup = oData.Persg;
+								clsAltGrp = oData.Persk;
+								skala = oData.Trfgr;
+								ucret = oData.Ucret;
+								diger = oData.Diger;
+								okulTur = "";
+								okulAd = "";
+								egitim = "";
+								adSoyad = oData.Ename;
+								dogumTarih = oData.Gbdat;
+								gecerTarih = oData.Begda;
+								aracPrim = oData.Arcpr;
+								dilPrim = oData.Dilpr;
+								mevPrim = oData.Mvspr;
+								vekPrim = oData.Vklpr;
+								sirket = oData.Bukrs;
+								tc = oData.Tckno;
+								sicil = firstPernr;
+								fisKonu = "İşten Çıkış";*/
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
 							skala = oData.Trfgr;
 							ucret = oData.Ucret;
 							diger = oData.Diger;
@@ -299,6 +349,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							tc = oData.Tckno;
 							sicil = firstPernr;
 							fisKonu = "İşten Çıkış";
+							ayrilma = oData.Mgtxt;
 
 							that.getView().byId("fisApprove").setText(fisKonu);
 							that.getView().byId("adSoyadApprove").setText(adSoyad);
@@ -370,20 +421,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				} else if (firstPronr === "03") {
 					oModel.read("/ZHRTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
-							perAlan = oData.Werks;
-							perAltAlan = oData.Btrtl;
-							isAlan = oData.Gsber;
-							isAnahtar = oData.Stell;
-							orgBirim = oData.Orgeh;
-							clsGrup = oData.Persg;
-							clsAltGrp = oData.Persk;
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
 							skala = oData.Trfgr;
 							ucret = oData.Ucret;
 							diger = oData.Diger;
-							okulTur = oData.Slart;
+							okulTur = oData.SlartTxt;
 							okulAd = oData.Insti;
-							egitim = oData.Fach1;
+							egitim = oData.Ftext;
 							adSoyad = oData.Ename;
 							dogumTarih = oData.Gbdat;
 							gecerTarih = oData.Begda;
@@ -465,20 +516,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				} else if (firstPronr === "04") {
 					oModel.read("/ZHRTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
-							perAlan = oData.Werks;
-							perAltAlan = oData.Btrtl;
-							isAlan = oData.Gsber;
-							isAnahtar = oData.Stell;
-							orgBirim = oData.Orgeh;
-							clsGrup = oData.Persg;
-							clsAltGrp = oData.Persk;
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
 							skala = oData.Trfgr;
 							ucret = oData.Ucret;
 							diger = oData.Diger;
-							okulTur = oData.Slart;
+							okulTur = oData.SlartTxt;
 							okulAd = oData.Insti;
-							egitim = oData.Fach1;
+							egitim = oData.Ftext;
 							adSoyad = oData.Ename;
 							dogumTarih = oData.Gbdat;
 							gecerTarih = oData.Begda;
@@ -560,20 +611,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				} else if (firstPronr === "05") {
 					oModel.read("/ZHRTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
-							perAlan = oData.Werks;
-							perAltAlan = oData.Btrtl;
-							isAlan = oData.Gsber;
-							isAnahtar = oData.Stell;
-							orgBirim = oData.Orgeh;
-							clsGrup = oData.Persg;
-							clsAltGrp = oData.Persk;
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
 							skala = oData.Trfgr;
 							ucret = oData.Ucret;
 							diger = oData.Diger;
-							okulTur = oData.Slart;
+							okulTur = oData.SlartTxt;
 							okulAd = oData.Insti;
-							egitim = oData.Fach1;
+							egitim = oData.Ftext;
 							adSoyad = oData.Ename;
 							dogumTarih = oData.Gbdat;
 							gecerTarih = oData.Begda;
@@ -655,20 +706,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				} else if (firstPronr === "06") {
 					oModel.read("/ZHRTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
-							pozisyon = oData.Plans;
-							perAlan = oData.Werks;
-							perAltAlan = oData.Btrtl;
-							isAlan = oData.Gsber;
-							isAnahtar = oData.Stell;
-							orgBirim = oData.Orgeh;
-							clsGrup = oData.Persg;
-							clsAltGrp = oData.Persk;
+							pozisyon = oData.Stext;
+							perAlan = oData.Pbtxt;
+							perAltAlan = oData.Btext;
+							isAlan = oData.Gtext;
+							isAnahtar = oData.StellTxt;
+							orgBirim = oData.OrgehTxt;
+							clsGrup = oData.Psgtext;
+							clsAltGrp = oData.Psktext;
 							skala = oData.Trfgr;
 							ucret = oData.Ucret;
 							diger = oData.Diger;
-							okulTur = oData.Slart;
+							okulTur = oData.SlartTxt;
 							okulAd = oData.Insti;
-							egitim = oData.Fach1;
+							egitim = oData.Ftext;
 							adSoyad = oData.Ename;
 							dogumTarih = oData.Gbdat;
 							gecerTarih = oData.Begda;
@@ -805,31 +856,55 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRTalepPersonelBilgiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						/*	pozisyon = oData.Plans;
+							perAlan = oData.Werks;
+							perAltAlan = oData.Btrtl;
+							isAlan = oData.Gsber;
+							isAnahtar = oData.Stell;
+							orgBirim = oData.Orgeh;
+							clsGrup = oData.Persg;
+							clsAltGrp = oData.Persk;
+							skala = oData.Trfgr;
+							ucret = oData.Bet01;
+							diger = oData.Diger;
+							okulTur = oData.Slart;
+							okulAd = oData.Insti;
+							egitim = oData.Fach1;
+							adSoyad = oData.Ename;
+							dogumTarih = oData.Gbdat;
+							gecerTarih = oData.Begda;
+							aracPrim = "";
+							dilPrim = "";
+							mevPrim = "";
+							vekPrim = "";
+							sirket = "";
+							tc = "";
+							sicil = "";
+							fisKonu = "İşe Alım";*/
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
-						ucret = oData.Bet01;
+						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = oData.Slart;
+						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
-						egitim = oData.Fach1;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
-						aracPrim = "";
-						dilPrim = "";
-						mevPrim = "";
-						vekPrim = "";
-						sirket = "";
-						tc = "";
-						sicil = "";
-						fisKonu = "İşe Alım";
+						aracPrim = oData.Arcpr;
+						dilPrim = oData.Dilpr;
+						mevPrim = oData.Mvspr;
+						vekPrim = oData.Vklpr;
+						sirket = oData.Bukrs;
+						tc = oData.Tckno;
+						sicil = firstPernr;
 
 						that.getView().byId("fisApprove").setText(fisKonu);
 						that.getView().byId("adSoyadApprove").setText(adSoyad);
@@ -891,7 +966,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 				//işe alım personelinin yabancı dillerini getirme
 
-				oModel.read("/ZHRYabanciDilSet", null, ["$filter=" + perFilter], false,
+				oModel.read("/ZHRIseAlimYDSet", null, ["$filter=" + perFilter], false,
 					function(oData) {
 						oLangModel.setData(oData);
 						//	console.log(oData);
@@ -901,7 +976,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 				//işe alım personelinin zihinsel beceri bilgilerini getirme
 
-				oModel.read("/ZHRZihinselBeceriSet", null, ["$filter=" + perAbFilter], false,
+				oModel.read("/ZHRIseAlimZBSet", null, ["$filter=" + perAbFilter], false,
 					function(oData) {
 						oAbModel.setData(oData);
 
@@ -935,20 +1010,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRIstenCikisSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
 						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = "";
-						okulAd = "";
-						egitim = "";
+						okulTur = oData.SlartTxt;
+						okulAd = oData.Insti;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
@@ -958,8 +1033,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						vekPrim = oData.Vklpr;
 						sirket = oData.Bukrs;
 						tc = oData.Tckno;
-						sicil = selectPernr;
-						fisKonu = "İşten Çıkış";
+						sicil = firstPernr;
 
 						that.getView().byId("fisApprove").setText(fisKonu);
 						that.getView().byId("adSoyadApprove").setText(adSoyad);
@@ -1033,20 +1107,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
 						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = oData.Slart;
+						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
-						egitim = oData.Fach1;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
@@ -1175,20 +1249,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
 						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = oData.Slart;
+						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
-						egitim = oData.Fach1;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
@@ -1315,20 +1389,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
 						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = oData.Slart;
+						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
-						egitim = oData.Fach1;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
@@ -1456,20 +1530,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oModel.read("/ZHRTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
 						oJPerModel.setData(oData);
-						pozisyon = oData.Plans;
-						perAlan = oData.Werks;
-						perAltAlan = oData.Btrtl;
-						isAlan = oData.Gsber;
-						isAnahtar = oData.Stell;
-						orgBirim = oData.Orgeh;
-						clsGrup = oData.Persg;
-						clsAltGrp = oData.Persk;
+						pozisyon = oData.Stext;
+						perAlan = oData.Pbtxt;
+						perAltAlan = oData.Btext;
+						isAlan = oData.Gtext;
+						isAnahtar = oData.StellTxt;
+						orgBirim = oData.OrgehTxt;
+						clsGrup = oData.Psgtext;
+						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
 						ucret = oData.Ucret;
 						diger = oData.Diger;
-						okulTur = oData.Slart;
+						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
-						egitim = oData.Fach1;
+						egitim = oData.Ftext;
 						adSoyad = oData.Ename;
 						dogumTarih = oData.Gbdat;
 						gecerTarih = oData.Begda;
