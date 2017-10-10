@@ -136,6 +136,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 			firstAppnr = "01";
 			var filterOnayci = "Pernr eq '" + firstPernr + "' and  Pronr eq '" + firstPronr + "' and Appnr eq '" + firstAppnr + "'";
 
+			var oYDModel = new sap.ui.model.json.JSONModel();
+			var perFilterYD = "Pernr eq '" + selectPernr + "'";
+			var ozbModel = new sap.ui.model.json.JSONModel();
+			var perZbFilter = "Pernr eq '" + selectPernr + "'";
+
+			var YDtable = that.getView().byId("idLanguageTable");
+			var ozbtable = that.getView().byId("idAbilityTable");
+			var oPDModel = new sap.ui.model.json.JSONModel();
+			var perFilterPD = "Pernr eq '" + selectPernr + "'";
+			var pdtable = that.getView().byId("idPDTable");
+
 			setTimeout(function() {
 				if (firstPronr === "01") {
 					oModel.read("/ZHRTalepPersonelBilgiSet('" + firstPernr + "')", null, null, true,
@@ -352,7 +363,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						});
 					that.getView().setModel(onayciModel, "onayciModel");
 					//end of ycoskun
-					
+
 				} else if (firstPronr === "03") {
 					oModel.read("/ZHRGuncelTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
@@ -438,14 +449,43 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 						});
 
+					//begin of ycoskun terfi yabancı dilleri getir
+					oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
+						function(oData) {
+							oYDModel.setData(oData);
+
+						});
+					that.getView().setModel(oYDModel, "oYDModel");
+					YDtable.setModel(this.getView().getModel("oYDModel"));
+					//end of ycoskun
+
+					//begin of ycoskun  zihinsel beceri bilgileri getir
+					oModel.read("/ZHRTerfiZBSet", null, ["$filter=" + perZbFilter], true,
+						function(oData) {
+							ozbModel.setData(oData);
+
+						});
+					that.getView().setModel(ozbModel, "ozbModel");
+					ozbtable.setModel(this.getView().getModel("ozbModel"));
+					//end of ycoskun
+
+					oModel.read("/ZHRTerfiPDSet", null, ["$filter=" + perFilterPD], true,
+						function(oData) {
+							oPDModel.setData(oData);
+
+						});
+					that.getView().setModel(oPDModel, "PDModel");
+					pdtable.setModel(this.getView().getModel("PDModel"));
+
 					//işe alım personelinin onaycılarının getirilmesi
 					oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 						function(oData) {
 							onayciModel.setData(oData);
+							//	console.log(oData);
 						});
 					that.getView().setModel(onayciModel, "onayciModel");
 					//end of ycoskun
-					
+
 				} else if (firstPronr === "04") {
 					oModel.read("/ZHRGuncelTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
@@ -531,14 +571,43 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 						});
 
+					//begin of ycoskun terfi yabancı dilleri getir
+					oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
+						function(oData) {
+							oYDModel.setData(oData);
+
+						});
+					that.getView().setModel(oYDModel, "oYDModel");
+					YDtable.setModel(this.getView().getModel("oYDModel"));
+					//end of ycoskun
+
+					//begin of ycoskun  zihinsel beceri bilgileri getir
+					oModel.read("/ZHRTerfiZBSet", null, ["$filter=" + perZbFilter], true,
+						function(oData) {
+							ozbModel.setData(oData);
+
+						});
+					that.getView().setModel(ozbModel, "ozbModel");
+					ozbtable.setModel(this.getView().getModel("ozbModel"));
+					//end of ycoskun
+
+					oModel.read("/ZHRTerfiPDSet", null, ["$filter=" + perFilterPD], true,
+						function(oData) {
+							oPDModel.setData(oData);
+
+						});
+					that.getView().setModel(oPDModel, "PDModel");
+					pdtable.setModel(this.getView().getModel("PDModel"));
+
 					//işe alım personelinin onaycılarının getirilmesi
 					oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 						function(oData) {
 							onayciModel.setData(oData);
+							//	console.log(oData);
 						});
 					that.getView().setModel(onayciModel, "onayciModel");
 					//end of ycoskun
-					
+
 				} else if (firstPronr === "05") {
 					oModel.read("/ZHRGuncelTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
@@ -624,14 +693,42 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 						});
 
+					//begin of ycoskun terfi yabancı dilleri getir
+					oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
+						function(oData) {
+							oYDModel.setData(oData);
+
+						});
+					that.getView().setModel(oYDModel, "oYDModel");
+					YDtable.setModel(this.getView().getModel("oYDModel"));
+					//end of ycoskun
+
+					//begin of ycoskun  zihinsel beceri bilgileri getir
+					oModel.read("/ZHRTerfiZBSet", null, ["$filter=" + perZbFilter], true,
+						function(oData) {
+							ozbModel.setData(oData);
+
+						});
+					that.getView().setModel(ozbModel, "ozbModel");
+					ozbtable.setModel(this.getView().getModel("ozbModel"));
+					//end of ycoskun
+
+					oModel.read("/ZHRTerfiPDSet", null, ["$filter=" + perFilterPD], true,
+						function(oData) {
+							oPDModel.setData(oData);
+
+						});
+					that.getView().setModel(oPDModel, "PDModel");
+					pdtable.setModel(this.getView().getModel("PDModel"));
+
 					//işe alım personelinin onaycılarının getirilmesi
 					oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 						function(oData) {
 							onayciModel.setData(oData);
+							//	console.log(oData);
 						});
 					that.getView().setModel(onayciModel, "onayciModel");
 					//end of ycoskun
-					
 				} else if (firstPronr === "06") {
 					oModel.read("/ZHRGuncelTerfiSet('" + firstPernr + "')", null, null, true,
 						function(oData) {
@@ -717,10 +814,39 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 						});
 
+					//begin of ycoskun terfi yabancı dilleri getir
+					oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
+						function(oData) {
+							oYDModel.setData(oData);
+
+						});
+					that.getView().setModel(oYDModel, "oYDModel");
+					YDtable.setModel(this.getView().getModel("oYDModel"));
+					//end of ycoskun
+
+					//begin of ycoskun  zihinsel beceri bilgileri getir
+					oModel.read("/ZHRTerfiZBSet", null, ["$filter=" + perZbFilter], true,
+						function(oData) {
+							ozbModel.setData(oData);
+
+						});
+					that.getView().setModel(ozbModel, "ozbModel");
+					ozbtable.setModel(this.getView().getModel("ozbModel"));
+					//end of ycoskun
+
+					oModel.read("/ZHRTerfiPDSet", null, ["$filter=" + perFilterPD], true,
+						function(oData) {
+							oPDModel.setData(oData);
+
+						});
+					that.getView().setModel(oPDModel, "PDModel");
+					pdtable.setModel(this.getView().getModel("PDModel"));
+
 					//işe alım personelinin onaycılarının getirilmesi
 					oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 						function(oData) {
 							onayciModel.setData(oData);
+							//	console.log(oData);
 						});
 					that.getView().setModel(onayciModel, "onayciModel");
 					//end of ycoskun
@@ -771,7 +897,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 			var oPDModel = new sap.ui.model.json.JSONModel();
 			var perFilterPD = "Pernr eq '" + selectPernr + "'";
 			var pdtable = oThat.getView().byId("idPDTable");
-			var pdtable3 = oThat.getView().byId("idLanguageTable3");
 
 			selectAppnr = "01";
 			var filterOnayci = "Pernr eq '" + selectPernr + "' and  Pronr eq '" + selectPronr + "' and Appnr eq '" + selectAppnr + "'";
@@ -803,7 +928,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						vekPrim = oData.Vklpr;
 						sirket = oData.Bukrs;
 						tc = oData.Tckno;
-						sicil = firstPernr;
+						sicil = selectPernr;
 
 						that.getView().byId("fisApprove").setText(fisKonu);
 						that.getView().byId("adSoyadApprove").setText(adSoyad);
@@ -923,7 +1048,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						vekPrim = oData.Vklpr;
 						sirket = oData.Bukrs;
 						tc = oData.Tckno;
-						sicil = firstPernr;
+						sicil = selectPernr;
 
 						that.getView().byId("fisApprove").setText(fisKonu);
 						that.getView().byId("adSoyadApprove").setText(adSoyad);
@@ -1105,7 +1230,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					});
 				oThat.getView().setModel(oPDModel, "PDModel");
 				pdtable.setModel(this.getView().getModel("PDModel"));
-				
+
 				//işe alım personelinin onaycılarının getirilmesi
 				oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 					function(oData) {
@@ -1115,19 +1240,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oThat.getView().setModel(onayciModel, "onayciModel");
 				//end of ycoskun
 
-				//begin of ycoskun terfi yabancı dilleri getir
-				var olangModel = new sap.ui.model.json.JSONModel();
-				selectPernr = that.getView().byId("sicilApprove").getValue();
-
-				oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
-					function(oData) {
-						olangModel.setData(oData);
-
-					});
-				oThat.getView().setModel(olangModel, "LangModel");
-				pdtable3.setModel(this.getView().getModel("LangModel"));
-
-				//end of ycoskun
 			} else if (selectPronr === "04") {
 				oModel.read("/ZHRGuncelTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
@@ -1234,7 +1346,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oThat.getView().setModel(ozbModel, "ozbModel");
 				ozbtable.setModel(this.getView().getModel("ozbModel"));
 				//end of ycoskun
-				
+
 				oModel.read("/ZHRTerfiPDSet", null, ["$filter=" + perFilterPD], true,
 					function(oData) {
 						oPDModel.setData(oData);
@@ -1242,7 +1354,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					});
 				oThat.getView().setModel(oPDModel, "PDModel");
 				pdtable.setModel(this.getView().getModel("PDModel"));
-				
+
 				//işe alım personelinin onaycılarının getirilmesi
 				oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 					function(oData) {
@@ -1252,18 +1364,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oThat.getView().setModel(onayciModel, "onayciModel");
 				//end of ycoskun
 
-				//begin of ycoskun terfi yabancı dilleri getir
-				selectPernr = that.getView().byId("sicilApprove").getValue();
-
-				oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
-					function(oData) {
-						olangModel.setData(oData);
-
-					});
-				oThat.getView().setModel(olangModel, "LangModel");
-				pdtable3.setModel(this.getView().getModel("LangModel"));
-				//end of ycoskun
-				
 			} else if (selectPronr === "05") {
 				oModel.read("/ZHRGuncelTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
@@ -1377,7 +1477,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					});
 				oThat.getView().setModel(oPDModel, "PDModel");
 				pdtable.setModel(this.getView().getModel("PDModel"));
-				
+
 				//işe alım personelinin onaycılarının getirilmesi
 				oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 					function(oData) {
@@ -1386,18 +1486,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 				oThat.getView().setModel(onayciModel, "onayciModel");
 				//end of ycoskun
 
-				//begin of ycoskun terfi yabancı dilleri getir
-				selectPernr = that.getView().byId("sicilApprove").getValue();
-
-				oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
-					function(oData) {
-						olangModel.setData(oData);
-
-					});
-				oThat.getView().setModel(olangModel, "LangModel");
-				pdtable3.setModel(this.getView().getModel("LangModel"));
-				//end of ycoskun
-				
 			} else if (selectPronr === "06") {
 				oModel.read("/ZHRGuncelTerfiSet('" + selectPernr + "')", null, null, true,
 					function(oData) {
@@ -1512,25 +1600,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					});
 				oThat.getView().setModel(oPDModel, "PDModel");
 				pdtable.setModel(this.getView().getModel("PDModel"));
-				
+
 				//işe alım personelinin onaycılarının getirilmesi
 				oModel.read("/ZHROnayciStatuSet", null, ["$filter=" + filterOnayci], false,
 					function(oData) {
 						onayciModel.setData(oData);
 					});
 				oThat.getView().setModel(onayciModel, "onayciModel");
-				//end of ycoskun
-
-				//begin of ycoskun terfi yabancı dilleri getir
-				selectPernr = that.getView().byId("sicilApprove").getValue();
-
-				oModel.read("/ZHRTerfiYDSet", null, ["$filter=" + perFilterYD], true,
-					function(oData) {
-						olangModel.setData(oData);
-
-					});
-				oThat.getView().setModel(olangModel, "LangModel");
-				pdtable3.setModel(this.getView().getModel("LangModel"));
 				//end of ycoskun
 			}
 
