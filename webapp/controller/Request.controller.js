@@ -18,6 +18,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 	return Controller.extend("ZHR_REQUEST.controller.Request", {
 
 		onInit: function() {
+			debugger;
 			var that = this;
 			var oJasonModel = new sap.ui.model.json.JSONModel();
 			var filter = "Appnr eq '" + appnrFilter + "' ";
@@ -54,6 +55,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 		},
 		formatDate: function(value) {
 			var gun, yil, ay, tarih;
+			debugger;
 			if (value) {
 				if (selectPronr === "01") {
 					yil = value.substring(0, 4);
@@ -68,6 +70,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					});
 					tarih = oDateFormat.format(new Date(value));
 				} else if (selectPronr === "03") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				} else if (selectPronr === "04") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				}
+				 else if (selectPronr === "05") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				}
+				 else if (selectPronr === "06") {
 					yil = value.substring(0, 4);
 					ay = value.substring(4, 6);
 					gun = value.substring(6, 8);
@@ -97,6 +116,24 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					gun = value.substring(6, 8);
 					tarih = gun + "." + ay + "." + yil;
 				}
+				else if (firstPronr === "04") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				}
+				else if (firstPronr === "05") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				}
+				else if (firstPronr === "06") {
+					yil = value.substring(0, 4);
+					ay = value.substring(4, 6);
+					gun = value.substring(6, 8);
+					tarih = gun + "." + ay + "." + yil;
+				}
 			}
 			return tarih;
 
@@ -113,6 +150,15 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 					} else if (pronrArray[i] === "03") {
 						pernr = value;
 					}
+					else if (pronrArray[i] === "04") {
+						pernr = value;
+					}
+					else if (pronrArray[i] === "05") {
+						pernr = value;
+					}
+					else if (pronrArray[i] === "06") {
+						pernr = value;
+					}
 					return pernr;
 
 				}
@@ -120,6 +166,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 
 		},
 		onAfterRendering: function() {
+			debugger;
 			var that = this;
 			var pozisyon, perAlan, perAltAlan, isAlan, isAnahtar, orgBirim, clsGrup, aracPrim, dilPrim, mevPrim, vekPrim, fisKonu;
 			var clsAltGrp, skala, ucret, diger, okulTur, okulAd, egitim, adSoyad, dogumTarih, gecerTarih, sirket, tc, sicil, ayrilma;
@@ -1633,9 +1680,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							method: "POST",
 							success: function() {
 								console.log("SUCCESS");
-								sap.m.MessageToast.show("Form Onaylandı.");
 								oModel.refresh(true);
 								oThat.onInit();
+								debugger;
+								oThat.onAfterRendering();
+								sap.m.MessageToast.show("Form Onaylandı.");
+			
 
 							},
 							error: function() {
@@ -1669,9 +1719,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 							method: "POST",
 							success: function() {
 								console.log("SUCCESS");
-								sap.m.MessageToast.show("Form Reddedildi.");
 								oModel.refresh(true);
 								oThat.onInit();
+								debugger;
+								oThat.onAfterRendering();
+								sap.m.MessageToast.show("Form Reddedildi.");
+								
+							
 
 							},
 							error: function() {

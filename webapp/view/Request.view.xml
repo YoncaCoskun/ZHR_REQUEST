@@ -141,7 +141,7 @@
 																<Text text="{Spras}"/>
 																<Text text="{Sptxt}"/>
 																<Text text="{Puan}"/>
-																<Text text="{SinavTarihi}"/>
+																<Text text="{path: 'SinavTarihi' , formatter: '.formatDate'}"/>
 																<Text text="{Yazma}"/>
 																<Text text="{Okuma}"/>
 																<Text text="{Dinleme}"/>
@@ -175,7 +175,7 @@
 															<cells>
 																<Text text="{SinavTuru}"/>
 																<Text text="{Puan}"/>
-																<Text text="{path: 'SinavTarihi' , formatter: '.vDatePdyear'}"/>
+																<Text text="{path: 'SinavTarihi' , formatter: '.formatDate'}"/>
 															</cells>
 														</ColumnListItem>
 													</items>
