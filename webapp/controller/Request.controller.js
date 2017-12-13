@@ -961,7 +961,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast",
 						clsGrup = oData.Psgtext;
 						clsAltGrp = oData.Psktext;
 						skala = oData.Trfgr;
-						ucret = oData.Ucret;
+						ucret = oData.Bet01;
 						diger = oData.Diger;
 						okulTur = oData.SlartTxt;
 						okulAd = oData.Insti;
